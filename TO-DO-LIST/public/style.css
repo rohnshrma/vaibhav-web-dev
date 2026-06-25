@@ -1,0 +1,237 @@
+/* CSS custom properties store reusable design values in one place. */
+:root {
+  /* Page background color. */
+  --bg: #f5f7fb;
+
+  /* Card background color. */
+  --card: #ffffff;
+
+  /* Main text color. */
+  --text: #1f2937;
+
+  /* Softer text color for supporting content. */
+  --muted: #6b7280;
+
+  /* Light border color. */
+  --line: #e5e7eb;
+
+  /* Main accent color used for the button. */
+  --accent: #111827;
+}
+
+/* Apply a more predictable box model to every element. */
+* {
+  box-sizing: border-box;
+}
+
+/* Base page styling. */
+body {
+  /* Remove the browser's default page margin. */
+  margin: 0;
+
+  /* Ensure the body is at least as tall as the visible screen. */
+  min-height: 100vh;
+
+  /* Set the global font family. */
+  font-family: "Inter", sans-serif;
+
+  /* Set the default text color for the page. */
+  color: var(--text);
+
+  /* Set the page background color. */
+  background: var(--bg);
+}
+
+/* Center the app and limit its width. */
+.container {
+  /* Use the smaller of 100% or 680px. */
+  width: min(100%, 680px);
+
+  /* Center the container horizontally. */
+  margin: 0 auto;
+
+  /* Add vertical and horizontal spacing around the content. */
+  padding: 48px 16px;
+}
+
+/* Style the main app card. */
+.todo-card {
+  /* White background for contrast against the page. */
+  background: var(--card);
+
+  /* Thin border around the card. */
+  border: 1px solid var(--line);
+
+  /* Rounded corners for a softer modern look. */
+  border-radius: 18px;
+
+  /* Inner spacing between the card edge and its content. */
+  padding: 24px;
+}
+
+/* Remove default margins from headings and paragraphs used here. */
+h1,
+p {
+  margin: 0;
+}
+
+/* Main heading style. */
+h1 {
+  /* Make the title larger. */
+  font-size: 2rem;
+
+  /* Use a stronger font weight for emphasis. */
+  font-weight: 700;
+}
+
+/* Secondary helper text under the heading. */
+.summary {
+  /* Create a small gap below the title. */
+  margin-top: 8px;
+
+  /* Use a softer color so it feels less prominent than the heading. */
+  color: var(--muted);
+
+  /* Slightly smaller text size than normal body text. */
+  font-size: 0.95rem;
+}
+
+/* Layout for the input and button row. */
+.task-form {
+  /* Use CSS Grid for a simple two-column form layout. */
+  display: grid;
+
+  /* First column grows, second column fits the button width. */
+  grid-template-columns: 1fr auto;
+
+  /* Space between the input and button. */
+  gap: 10px;
+
+  /* Space above the form. */
+  margin-top: 20px;
+}
+
+/* Ensure the input and button use the same font as the page. */
+.task-form input,
+.task-form button {
+  font: inherit;
+}
+
+/* Style the text input. */
+.task-form input {
+  /* Inner spacing so text does not touch the edges. */
+  padding: 12px 14px;
+
+  /* Light border for the input box. */
+  border: 1px solid var(--line);
+
+  /* Rounded corners. */
+  border-radius: 12px;
+
+  /* Remove the default browser focus outline. */
+  outline: none;
+}
+
+/* Change the input border color when the user clicks into it. */
+.task-form input:focus {
+  border-color: #9ca3af;
+}
+
+/* Style the Add button. */
+.task-form button {
+  /* Button inner spacing. */
+  padding: 12px 16px;
+
+  /* Remove the default button border. */
+  border: 0;
+
+  /* Match the rounded shape of the input. */
+  border-radius: 12px;
+
+  /* Dark background for visual emphasis. */
+  background: var(--accent);
+
+  /* White text for contrast. */
+  color: #ffffff;
+
+  /* Slightly heavier text. */
+  font-weight: 600;
+
+  /* Show a pointer cursor on hover. */
+  cursor: pointer;
+}
+
+/* Style the task list container. */
+.task-list {
+  /* Remove default bullet points. */
+  list-style: none;
+
+  /* Remove default left padding. */
+  padding: 0;
+
+  /* Add space above the list. */
+  margin: 18px 0 0;
+
+  /* Stack list items vertically with consistent spacing. */
+  display: grid;
+  gap: 10px;
+}
+
+/* Style each task row. */
+.task-item {
+  /* Add vertical space inside each row. */
+  padding: 14px 0;
+
+  /* Separate each task visually with a line. */
+  border-bottom: 1px solid var(--line);
+}
+
+/* Remove the last divider so the list ends cleanly. */
+.task-item:last-child {
+  border-bottom: 0;
+}
+
+/* Style the task text itself. */
+.task-title {
+  /* Standard readable body size. */
+  font-size: 1rem;
+
+  /* Give multiline text some breathing room if a task wraps. */
+  line-height: 1.5;
+}
+
+/* Style the "No tasks yet" message. */
+.empty-state {
+  /* Space above the message. */
+  margin-top: 18px;
+
+  /* Use softer color because it is supporting text. */
+  color: var(--muted);
+}
+
+/* Utility class for screen-reader-only content. */
+.sr-only {
+  /* Remove the element from visible layout while keeping it accessible. */
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* Responsive adjustments for smaller screens. */
+@media (max-width: 560px) {
+  /* Reduce card padding on small screens. */
+  .todo-card {
+    padding: 18px;
+  }
+
+  /* Stack the input and button vertically on narrow screens. */
+  .task-form {
+    grid-template-columns: 1fr;
+  }
+}

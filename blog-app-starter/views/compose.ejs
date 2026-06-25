@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BlogSpace - Compose</title>
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+    <div class="bg-mesh"></div>
+    
+    <div class="container">
+        <nav>
+            <a href="/" class="logo">BlogSpace</a>
+            <div class="nav-links">
+                <a href="/blogs">Explore Blogs</a>
+                <a href="/logout">Logout</a>
+            </div>
+        </nav>
+
+        <div class="center-content fade-in" style="margin-top: 2rem; width: 100%;">
+            <div class="glass-panel panel-md" style="width: 100%;">
+                <h2>Compose New Blog</h2>
+                <p>Share your ideas with the world.</p>
+
+                <!-- EJS form action will be added by user -->
+                <form action="/compose" method="POST">
+                    <div class="form-group">
+                        <label for="title">Title</label>
+                        <input type="text" id="title" name="postTitle" placeholder="Give your post a catchy title" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="content">Content</label>
+                        <textarea id="content" name="postBody" placeholder="Start writing your thoughts..." required></textarea>
+                    </div>
+
+                    <div style="display: flex; gap: 1rem; margin-top: 2rem;">
+                        <button type="submit" class="btn btn-primary">Publish</button>
+                        <a href="/blogs" class="btn btn-outline">Cancel</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

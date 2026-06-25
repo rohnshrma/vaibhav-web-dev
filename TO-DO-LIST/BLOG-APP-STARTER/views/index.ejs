@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Standard page setup for character support and responsive layout -->
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Simple Blog App</title>
+
+    <!-- This file is served from the /public folder by Express static middleware -->
+    <link rel="stylesheet" href="/style.css" />
+  </head>
+  <body>
+    <!-- Main wrapper for the visible page content -->
+    <main class="page-shell">
+      <!-- Top intro section -->
+      <section class="hero">
+        <p class="eyebrow">Learning Project</p>
+        <h1>Simple Blog App</h1>
+        <p class="hero-copy">
+          Create short blog posts with a title and some content.
+        </p>
+      </section>
+
+      <!-- Form section: sends data to the server using POST /posts -->
+      <section class="panel">
+        <h2>Write a New Post</h2>
+
+        <form class="post-form" action="/posts" method="post">
+          <!-- `name="title"` is important because the server reads it as `req.body.title` -->
+          <div class="field">
+            <label for="title">Post Title</label>
+            <input
+              id="title"
+              name="title"
+              type="text"
+              placeholder="Enter a blog title"
+              required
+            />
+          </div>
+
+          <!-- `name="content"` becomes `req.body.content` on the server -->
+          <div class="field">
+            <label for="content">Post Content</label>
+            <textarea
+              id="content"
+              name="content"
+              rows="6"
+              placeholder="Write your blog content here"
+              required
+            ></textarea>
+          </div>
+
+          <button type="submit">Publish Post</button>
+        </form>
+      </section>
+
+      <!-- Posts list section -->
+      <section class="panel">
+        <div class="section-heading">
+          <h2>Recent Posts</h2>
+          <p>Show the newest posts at the top.</p>
+        </div>
+
+        <% /* EJS control flow: show a message when there are no posts */ %>
+        <% if (posts.length === 0) { %>
+        <div class="empty-state">No posts yet. Please add one.</div>
+        <% } else { %>
+        <% /* EJS loop: render one card for each post object */ %>
+        <% posts.forEach((postObj, index) => { %>
+        <!-- One visible blog card for each post object -->
+        <article class="post-card">
+          <!-- `<%= ... %>` prints a value into the HTML -->
+          <p class="post-meta">Post #<%= index + 1 %></p>
+          <h3><%= postObj.title %></h3>
+          <p><%= postObj.content %></p>
+
+          <!-- This form submits the selected post id to the delete route -->
+          <form action="/posts/<%= postObj.id %>/delete" method="post">
+            <button class="delete delete-btn" type="submit">DELETE POST</button>
+          </form>
+        </article>
+        <% }); %>
+        <% } %>
+      </section>
+    </main>
+  </body>
+</html>

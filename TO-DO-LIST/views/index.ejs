@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<%# Tell the browser this file uses modern HTML5. %>
+<html lang="en">
+  <%# The root HTML element starts the full page document. %> <%# `lang="en"`
+  helps browsers, screen readers, and search tools know the document language.
+  %>
+  <head>
+    <%# The head contains metadata and resource links, not visible page content.
+    %>
+
+    <meta charset="UTF-8" />
+    <%# Set the text encoding to UTF-8 so common characters display correctly.
+    %>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <%# Make the layout responsive on phones and tablets. %>
+
+    <title>To-Do List</title>
+    <%# This text appears in the browser tab title. %>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <%# Hint to the browser to prepare an early connection to Google Fonts. %>
+
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <%# Preconnect to the font asset domain too. %>
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <%# Load the Inter font family used by the page styling. %>
+
+    <link rel="stylesheet" href="/style.css" />
+    <%# Load the main stylesheet from the public folder. %>
+  </head>
+  <body>
+    <%# The body contains everything visible on the page. %>
+
+    <main class="container">
+      <%# `main` is the primary content area of the document. %> <%# The
+      `container` class gives the page width and spacing. %>
+
+      <section class="todo-card">
+        <%# This section is the main white card that holds the app UI. %>
+
+        <h1>To-Do List</h1>
+        <%# Main page heading. %>
+
+        <p class="summary">Add tasks and see them listed below.</p>
+        <%# Small helper text below the heading. %>
+
+        <form class="task-form" action="/tasks" method="post">
+          <%# This form sends data to the server. %> <%# `action="/tasks"` means
+          the request goes to the POST /tasks route. %> <%# `method="post"`
+          means we are sending new data to the server. %>
+
+          <label class="sr-only" for="title">New task</label>
+          <%# This label is visually hidden but still available to screen
+          readers. %> <%# `for="title"` connects the label to the input with
+          id="title". %>
+
+          <input
+            id="title"
+            name="name"
+            type="text"
+            placeholder="Add a task"
+            autocomplete="off"
+            required
+          />
+          <%# `id="title"` gives the input a unique identifier in the page. %>
+          <%# `name="title"` is critical because the server reads
+          `req.body.title`. %> <%# `type="text"` creates a normal text input. %>
+          <%# `placeholder` shows helper text before the user types. %> <%#
+          `autocomplete="off"` asks the browser not to show stored suggestions.
+          %> <%# `required` stops the form from submitting if the input is
+          empty. %>
+
+          <button type="submit">Add</button>
+          <%# A submit button sends the form to the server. %>
+        </form>
+
+        <% if (tasks.length === 0) { %> <%# If the tasks array is empty, show a
+        fallback message. %>
+        <p class="empty-state">No tasks yet.</p>
+        <% } else { %> <%# Otherwise, render each task inside an unordered list.
+        %>
+
+        <ul class="task-list">
+          <% tasks.forEach((task) => { %> <%# Each loop iteration prints one
+          task title. %>
+          <li class="task-item">
+            <span class="task-title"><%= task.name %></span>
+          </li>
+
+          <% }) %>
+        </ul>
+
+        <% } %>
+      </section>
+    </main>
+  </body>
+</html>

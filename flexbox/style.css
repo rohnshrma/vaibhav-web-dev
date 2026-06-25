@@ -1,0 +1,27 @@
+#main {
+  height: 500px;
+  background-color: grey;
+  display: flex;
+  /* flex-direction: column-reverse; */
+  justify-content: space-between;
+  align-items: center;
+  /* flex-wrap: wrap; */
+}
+
+.box {
+  height: 100px;
+  width: 1000px;
+}
+
+.b1 {
+  background-color: coral;
+  /* width: 20%; */
+}
+.b2 {
+  background-color: thistle;
+  /* width: 40%; */
+}
+.b3 {
+  /* width: 20%; */
+  background-color: wheat;
+}

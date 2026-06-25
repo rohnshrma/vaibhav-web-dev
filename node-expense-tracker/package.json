@@ -1,0 +1,30 @@
+{
+  "name": "node-expense-tracker-starter-kit",
+  "version": "1.0.0",
+  "description": "Starter kit for an expense tracker app using Node.js, Express, EJS, and MongoDB.",
+  "type": "module",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "nodemon server.js"
+  },
+  "keywords": [
+    "node",
+    "express",
+    "ejs",
+    "mongodb",
+    "expense-tracker",
+    "starter-kit"
+  ],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^17.4.0",
+    "ejs": "^3.1.10",
+    "express": "^5.1.0",
+    "mongoose": "^8.18.1"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.10"
+  }
+}

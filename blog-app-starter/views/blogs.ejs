@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BlogSpace - All Blogs</title>
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+    <div class="bg-mesh"></div>
+    
+    <div class="container">
+        <nav>
+            <a href="/" class="logo">BlogSpace</a>
+            <div class="nav-links">
+                <a href="/compose">Write a Blog</a>
+                <!-- Optional logic for auth states -->
+            </div>
+        </nav>
+
+        <div class="fade-in" style="margin-top: 3rem;">
+            <div style="display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 2rem;">
+                <div>
+                    <h2>Latest Articles</h2>
+                    <p style="margin-bottom: 0;">Discover stories, thinking, and expertise.</p>
+                </div>
+                <a href="/compose" class="btn btn-primary">Compose</a>
+            </div>
+
+            <div class="glass-panel" style="padding: 2rem;">
+                
+                <!-- This section is meant for EJS For Loop -->
+                <!-- Example static blog preview card 1 -->
+                <div class="blog-card">
+                    <h3>The Art of Glassmorphism in Modern Web Design</h3>
+                    <div class="meta">By John Doe • Oct 24, 2026</div>
+                    <p>Glassmorphism represents an evolution in UI design, blending semi-transparent backgrounds with vibrant colors to create depth and visual hierarchy. In this post, we explore how to effectively use blurred elements...</p>
+                    <a href="/posts/sample-1" class="btn btn-outline" style="padding: 0.5rem 1rem; font-size: 0.9rem;">Read More</a>
+                </div>
+
+                <!-- Example static blog preview card 2 -->
+                <div class="blog-card">
+                    <h3>Getting Started with Express and EJS</h3>
+                    <div class="meta">By Jane Smith • Oct 22, 2026</div>
+                    <p>Building dynamic web applications requires a solid understanding of templating engines. EJS provides a simple yet powerful syntax for weaving JavaScript logic directly into your HTML markup...</p>
+                    <a href="/posts/sample-2" class="btn btn-outline" style="padding: 0.5rem 1rem; font-size: 0.9rem;">Read More</a>
+                </div>
+
+                <!-- Replace the above with EJS loop something like:
+                <% posts.forEach(function(post){ %>
+                    <div class="blog-card">
+                        <h3><%= post.title %></h3>
+                        <p><%= post.content.substring(0, 150) + "..." %></p>
+                        <a href="/posts/<%= post._id %>" class="btn btn-outline">Read More</a>
+                    </div>
+                <% }) %>
+                -->
+
+            </div>
+        </div>
+    </div>
+</body>
+</html>

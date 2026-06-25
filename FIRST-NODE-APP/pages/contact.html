@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Contact | DogGram</title>
+    <link
+      href="https://fonts.googleapis.com/css?family=Montserrat|Ubuntu&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+      integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="/styles.css" />
+    <script
+      src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+      integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+      integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+      integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://kit.fontawesome.com/1e7c1fefb9.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+
+  <body>
+    <section id="title">
+      <div class="container-fluid">
+        <nav class="navbar navbar-expand-lg navbar-dark">
+          <a class="navbar-brand" href="/">DogGram</a>
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-toggle="collapse"
+            data-target="#navbarTogglerContact"
+            aria-controls="navbarTogglerContact"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarTogglerContact">
+            <ul class="navbar-nav ml-auto">
+              <li class="nav-item">
+                <a class="nav-link" href="/">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/about">About</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/contact">Contact</a>
+              </li>
+            </ul>
+          </div>
+        </nav>
+
+        <div class="row">
+          <div class="col-lg-6">
+            <h1>Contact DogGram</h1>
+            <p class="text-light">Reach out for collaboration and feedback.</p>
+            <button class="btn btn-dark btn-lg download-button" type="button">
+              <i class="fas fa-envelope"></i> hello@doggram.app
+            </button>
+          </div>
+          <div class="col-lg-6">
+            <img
+              class="brand-img"
+              src="https://tindog-pro.netlify.app/iphone6.png"
+              alt="iphone-mockup"
+            />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="features">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-4 features-box">
+            <i class="icon fas fa-envelope-open-text fa-4x"></i>
+            <h3>Email</h3>
+            <p>hello@doggram.app</p>
+          </div>
+          <div class="col-lg-4 features-box">
+            <i class="icon fas fa-phone fa-4x"></i>
+            <h3>Phone</h3>
+            <p>+1 (555) 010-1234</p>
+          </div>
+          <div class="col-lg-4 features-box">
+            <i class="icon fas fa-map-marker-alt fa-4x"></i>
+            <h3>Address</h3>
+            <p>123 Dog Street, New York, NY</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="profile-submit">
+      <div class="container">
+        <div class="row align-items-stretch">
+          <div class="col-lg-5 mb-4">
+            <div class="profile-submit-copy">
+              <span class="profile-kicker">Submit Profile</span>
+              <h2>Create your dog profile</h2>
+              <p>
+                Share your pup's details so the DogGram team can feature new
+                profiles, community stories, and adoption highlights.
+              </p>
+              <ul class="profile-points">
+                <li>Tell us your dog's name, breed, and age.</li>
+                <li>Add your email so we can follow up.</li>
+                <li>Include a short bio to make the profile stand out.</li>
+              </ul>
+            </div>
+          </div>
+          <div class="col-lg-7">
+            <div class="profile-form-card">
+              <form action="/contact" method="post">
+                <div class="form-row">
+                  <div class="form-group col-md-6">
+                    <label for="ownerName">Owner Name</label>
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="ownerName"
+                      name="owner"
+                      placeholder="Alex Johnson"
+                    />
+                  </div>
+                  <div class="form-group col-md-6">
+                    <label for="emailAddress">Email Address</label>
+                    <input
+                      type="email"
+                      name="email"
+                      class="form-control"
+                      id="emailAddress"
+                      placeholder="alex@email.com"
+                    />
+                  </div>
+                </div>
+                <div class="form-row">
+                  <div class="form-group col-md-6">
+                    <label for="dogName">Dog Name</label>
+                    <input
+                      name="dog_name"
+                      type="text"
+                      class="form-control"
+                      id="dogName"
+                      placeholder="Milo"
+                    />
+                  </div>
+                  <div class="form-group col-md-6">
+                    <label for="dogBreed">Breed</label>
+                    <input
+                      type="text"
+                      name="breed"
+                      class="form-control"
+                      id="dogBreed"
+                      placeholder="Golden Retriever"
+                    />
+                  </div>
+                </div>
+                <div class="form-row">
+                  <div class="form-group col-md-4">
+                    <label for="dogAge">Age</label>
+                    <input
+                      name="age"
+                      type="number"
+                      class="form-control"
+                      id="dogAge"
+                      placeholder="3"
+                      min="0"
+                    />
+                  </div>
+                  <div class="form-group col-md-4">
+                    <label for="profileType">Profile Type</label>
+                    <select id="profileType" class="form-control" name="type">
+                      <option selected>Choose...</option>
+                      <option>Featured Pet</option>
+                      <option>Adoption Story</option>
+                      <option>Community Spotlight</option>
+                    </select>
+                  </div>
+                  <div class="form-group col-md-4">
+                    <label for="city">City</label>
+                    <input
+                      type="text"
+                      name="city"
+                      class="form-control"
+                      id="city"
+                      placeholder="New York"
+                    />
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="dogBio">Dog Bio</label>
+                  <textarea
+                    class="form-control"
+                    id="dogBio"
+                    rows="4"
+                    name="bio"
+                    placeholder="Write a short profile introducing your dog."
+                  ></textarea>
+                </div>
+                <button type="submit" class="btn btn-dark btn-lg">
+                  Submit Profile
+                </button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </body>
+</html>

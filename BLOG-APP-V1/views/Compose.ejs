@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Blog App | Compose</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/css/base.css" />
+    <link rel="stylesheet" href="/css/compose.css" />
+  </head>
+  <body>
+    <div class="page-shell">
+      <header class="topbar">
+        <a href="/" class="brand">Inkspire</a>
+        <nav class="topbar-links">
+          <a href="/">Home</a>
+          <a href="/compose">Compose</a>
+          <a href="/blog">Blogs</a>
+        </nav>
+      </header>
+
+      <main class="compose-layout">
+        <section class="compose-intro card">
+          <span class="eyebrow">Create a post</span>
+          <h1>Turn an idea into a publish-ready blog draft.</h1>
+          <p>
+            Keep the form simple and focused. Add a strong title, a helpful
+            description, and place your post in the right category.
+          </p>
+
+          <div class="tips">
+            <article>
+              <strong>Strong title</strong>
+              <p>Use something clear, specific, and easy to scan.</p>
+            </article>
+            <article>
+              <strong>Short description</strong>
+              <p>Summarize the post in a few meaningful lines.</p>
+            </article>
+            <article>
+              <strong>Category</strong>
+              <p>Group similar blogs so readers can browse faster.</p>
+            </article>
+          </div>
+        </section>
+
+        <section class="compose-form-wrap card">
+          <form action="/compose" method="post" class="compose-form">
+            <div class="form-group">
+              <label for="title">Title</label>
+              <input
+                id="title"
+                name="title"
+                type="text"
+                placeholder="Enter blog title"
+                required
+              />
+            </div>
+
+            <div class="form-group">
+              <label for="description">Description</label>
+              <textarea
+                id="description"
+                name="description"
+                rows="8"
+                placeholder="Write your blog description"
+                required
+              ></textarea>
+            </div>
+
+            <div class="form-group">
+              <label for="category">Category</label>
+              <select id="category" name="category" required>
+                <option value="" disabled selected>Select a category</option>
+                <option value="Technology">Technology</option>
+                <option value="Lifestyle">Lifestyle</option>
+                <option value="Travel">Travel</option>
+                <option value="Business">Business</option>
+                <option value="Health">Health</option>
+                <option value="Food">Food</option>
+                <option value="Education">Education</option>
+                <option value="Entertainment">Entertainment</option>
+                <option value="Sports">Sports</option>
+                <option value="Personal">Personal</option>
+              </select>
+            </div>
+
+            <div class="form-actions">
+              <button type="submit" class="button primary">Publish Draft</button>
+              <a href="/blog" class="button secondary">View Blogs</a>
+            </div>
+          </form>
+        </section>
+      </main>
+    </div>
+  </body>
+</html>

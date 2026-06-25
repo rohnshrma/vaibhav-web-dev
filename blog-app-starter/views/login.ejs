@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BlogSpace - Login</title>
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+    <div class="bg-mesh"></div>
+    
+    <div class="container center-content">
+        <div class="glass-panel panel-sm fade-in">
+            <h2 style="text-align: center;">Welcome Back</h2>
+            <p style="text-align: center; margin-bottom: 2rem;">Log in to continue your writing journey.</p>
+
+            <!-- EJS form action will be added by user -->
+            <form action="/login" method="POST">
+                <div class="form-group">
+                    <label for="email">Email or Username</label>
+                    <input type="text" id="email" name="username" placeholder="Enter your email or username" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" name="password" placeholder="Enter your password" required>
+                </div>
+
+                <button type="submit" class="btn btn-primary btn-block">Log In</button>
+            </form>
+
+            <div class="auth-links" style="text-align: center;">
+                Don't have an account? <a href="/register">Sign up for free</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

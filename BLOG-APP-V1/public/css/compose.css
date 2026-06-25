@@ -1,0 +1,110 @@
+.compose-layout {
+  display: grid;
+  grid-template-columns: 0.95fr 1.05fr;
+  gap: 24px;
+}
+
+.compose-intro,
+.compose-form-wrap {
+  padding: 32px;
+}
+
+.compose-intro h1 {
+  margin: 18px 0 14px;
+  font-size: clamp(2rem, 3.8vw, 3.6rem);
+  line-height: 1.06;
+  letter-spacing: -0.05em;
+}
+
+.tips {
+  display: grid;
+  gap: 14px;
+  margin-top: 28px;
+}
+
+.tips article {
+  padding: 18px;
+  border-radius: var(--radius-md);
+  background: rgba(255, 255, 255, 0.58);
+  border: 1px solid var(--line);
+}
+
+.tips strong {
+  display: block;
+  margin-bottom: 8px;
+}
+
+.compose-form {
+  display: grid;
+  gap: 20px;
+}
+
+.form-group {
+  display: grid;
+  gap: 10px;
+}
+
+.form-group label {
+  font-weight: 700;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+  width: 100%;
+  padding: 15px 16px;
+  border: 1px solid rgba(31, 41, 55, 0.12);
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.85);
+  color: var(--text);
+  outline: none;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+  border-color: rgba(201, 111, 59, 0.55);
+  box-shadow: 0 0 0 4px rgba(201, 111, 59, 0.12);
+}
+
+.form-group select {
+  appearance: none;
+  cursor: pointer;
+  background-image:
+    linear-gradient(45deg, transparent 50%, var(--accent-deep) 50%),
+    linear-gradient(135deg, var(--accent-deep) 50%, transparent 50%);
+  background-position:
+    calc(100% - 22px) calc(50% - 3px),
+    calc(100% - 16px) calc(50% - 3px);
+  background-size: 6px 6px, 6px 6px;
+  background-repeat: no-repeat;
+}
+
+.form-group textarea {
+  resize: vertical;
+  min-height: 180px;
+}
+
+.form-actions {
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+
+button.button {
+  border: none;
+  cursor: pointer;
+}
+
+@media (max-width: 900px) {
+  .compose-layout {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 640px) {
+  .compose-intro,
+  .compose-form-wrap {
+    padding: 24px;
+  }
+}

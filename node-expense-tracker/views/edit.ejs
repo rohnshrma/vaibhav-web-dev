@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Expense Tracker Starter Kit</title>
+    <link rel="stylesheet" href="/style.css" />
+  </head>
+  <body>
+    <main class="page">
+      <section class="hero">
+        <span class="eyebrow">Expense Tracker</span>
+        <h1>Track spending with a clean, modern layout.</h1>
+      </section>
+
+      <section class="grid">
+        <article class="card">
+          <h2>Add Expense</h2>
+          <form
+            class="expense-form"
+            action="/update/<%= expense._id %>"
+            method="POST"
+          >
+            <div class="field">
+              <label for="name">Expense Name</label>
+              <input
+                type="text"
+                id="name"
+                name="name"
+                placeholder="Groceries"
+                value="<%= expense.name %>"
+              />
+            </div>
+
+            <div class="field">
+              <label for="amount">Amount</label>
+              <input
+                value="<%= expense.amount %>"
+                type="number"
+                id="amount"
+                name="amount"
+                placeholder="250"
+                min="0"
+                step="0.01"
+              />
+            </div>
+
+            <button class="primary-btn" type="submit">Update Expense</button>
+          </form>
+        </article>
+      </section>
+    </main>
+  </body>
+</html>

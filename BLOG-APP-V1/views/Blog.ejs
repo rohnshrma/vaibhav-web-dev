@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Blog App | Blogs</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/css/base.css" />
+    <link rel="stylesheet" href="/css/blog.css" />
+  </head>
+  <body>
+    <div class="page-shell">
+      <header class="topbar">
+        <a href="/" class="brand">Inkspire</a>
+        <nav class="topbar-links">
+          <a href="/">Home</a>
+          <a href="/compose">Compose</a>
+          <a href="/blog">Blogs</a>
+        </nav>
+      </header>
+
+      <%
+        const blogList = Array.isArray(blogs) ? blogs : [];
+
+        const getReadTime = (text = "") => {
+          const words = text.trim().split(/\s+/).filter(Boolean).length;
+          const minutes = Math.max(1, Math.ceil(words / 200));
+          return `${minutes} min read`;
+        };
+
+        const truncateWords = (text = "", limit = 50) => {
+          const words = text.trim().split(/\s+/).filter(Boolean);
+          if (words.length <= limit) return text;
+          return `${words.slice(0, limit).join(" ")}...`;
+        };
+      %>
+
+      <main class="blog-page">
+        <section class="blog-header card">
+          <div>
+            <span class="eyebrow">Blog collection</span>
+            <h1>Browse recent stories and featured categories.</h1>
+            <p>
+              This page is ready for dynamic rendering later. For now, it uses
+              modern static cards to preview how your blog listing can look.
+            </p>
+          </div>
+          <a href="/compose" class="button primary">Write a Blog</a>
+        </section>
+
+        <section class="blog-grid">
+          <% if (blogList.length > 0) { %>
+          <% blogList.forEach((blogObj) => { %>
+
+          <article class="blog-card card">
+            <span class="blog-category"><%= blogObj.category %></span>
+            <h2><%= blogObj.title %></h2>
+            <p><%= truncateWords(blogObj.description, 50) %></p>
+            <footer>
+              <span><%= getReadTime(blogObj.description) %></span>
+              <a href="/blog-details/<%= blogObj._id %>">Read more</a>
+            </footer>
+          </article>
+
+          <% }) %>
+          <% } else { %>
+
+          <h2>No Blog Yet!</h2>
+
+          <% } %>
+        </section>
+      </main>
+    </div>
+  </body>
+</html>

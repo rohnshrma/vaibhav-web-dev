@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BlogSpace - Welcome</title>
+    <!-- CSS is loaded here, user can handle EJS dynamic path if needed -->
+    <link rel="stylesheet" href="/css/styles.css">
+    <meta name="description" content="A beautiful space to read and write amazing blogs">
+</head>
+<body>
+    <div class="bg-mesh"></div>
+    
+    <div class="container">
+        <nav>
+            <a href="/" class="logo">BlogSpace</a>
+            <div class="nav-links">
+                <!-- EJS Logic will likely decide between Login/Register or Compose/Logout -->
+                <a href="/login">Login</a>
+                <a href="/register">Register</a>
+                <a href="/blogs">Explore Blogs</a>
+            </div>
+        </nav>
+
+        <main class="home-hero fade-in">
+            <h1>Where ideas take shape</h1>
+            <p>Join a community of thinkers, creators, and visionaries. Read engaging stories or share your own thoughts in our beautiful, distraction-free environment.</p>
+            
+            <div style="display: flex; justify-content: center; gap: 1rem; margin-top: 2.5rem;">
+                <a href="/register" class="btn btn-primary">Get Started</a>
+                <a href="/blogs" class="btn btn-outline">Read Blogs</a>
+            </div>
+        </main>
+    </div>
+</body>
+</html>

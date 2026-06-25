@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Blog App | Blog Detail</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/css/base.css" />
+    <link rel="stylesheet" href="/css/post.css" />
+  </head>
+  <body>
+    <div class="page-shell">
+      <header class="topbar">
+        <a href="/" class="brand">Inkspire</a>
+        <nav class="topbar-links">
+          <a href="/">Home</a>
+          <a href="/compose">Compose</a>
+          <a href="/blog">Blogs</a>
+        </nav>
+      </header>
+
+      <%
+        const getReadTime = (text = "") => {
+          const words = text.trim().split(/\s+/).filter(Boolean).length;
+          const minutes = Math.max(1, Math.ceil(words / 200));
+          return `${minutes} min read`;
+        };
+
+        const formatDate = (dateValue) => {
+          const parsedDate = new Date(dateValue);
+          return parsedDate.toLocaleDateString("en-US", {
+            day: "numeric",
+            month: "long",
+            year: "numeric",
+          });
+        };
+      %>
+
+      <main class="post-layout">
+        <% if (blog) { %>
+        <article class="post-main card">
+          <div class="post-meta">
+            <span class="post-category"><%= blog.category %></span>
+            <span><%= formatDate(blog.createdAt) %></span>
+            <span><%= getReadTime(blog.description) %></span>
+          </div>
+
+          <h1><%= blog.title %></h1>
+
+          <p class="post-lead"><%= blog.description %></p>
+
+          <div class="post-content">
+            <p><%= blog.description %></p>
+            <p>
+              This post belongs to the <strong><%= blog.category %></strong>
+              category and was published on
+              <strong><%= formatDate(blog.createdAt) %></strong>.
+            </p>
+            <p>
+              Last updated on <strong><%= formatDate(blog.updatedAt) %></strong>.
+            </p>
+          </div>
+        </article>
+
+        <aside class="post-sidebar">
+          <section class="card sidebar-card">
+            <span class="eyebrow">Blog info</span>
+            <h2><%= blog.category %></h2>
+            <p>
+              <%= blog.title %> is estimated at
+              <%= getReadTime(blog.description) %> based on its description
+              length.
+            </p>
+          </section>
+
+          <section class="card sidebar-card">
+            <span class="eyebrow">Timestamps</span>
+            <div class="related-list">
+              <div class="related-item">
+                <strong>Created</strong>
+                <span><%= formatDate(blog.createdAt) %></span>
+              </div>
+              <div class="related-item">
+                <strong>Last Updated</strong>
+                <span><%= formatDate(blog.updatedAt) %></span>
+              </div>
+              <a href="/blog" class="related-item">
+                <strong>Back to all blogs</strong>
+                <span>Browse the full list</span>
+              </a>
+            </div>
+          </section>
+        </aside>
+        <% } else { %>
+        <section class="post-empty card">
+          <span class="eyebrow">Blog not found</span>
+          <h1>This blog post is not available.</h1>
+          <p>
+            The post you are trying to open may have been removed, or the link
+            may be incorrect. You can head back to the blog list and explore
+            available posts.
+          </p>
+          <div class="empty-actions">
+            <a href="/blog" class="button primary">Back to Blogs</a>
+            <a href="/compose" class="button secondary">Write a Blog</a>
+          </div>
+        </section>
+        <% } %>
+      </main>
+    </div>
+  </body>
+</html>
