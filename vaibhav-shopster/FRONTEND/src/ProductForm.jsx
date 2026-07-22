@@ -1,5 +1,6 @@
 import axios from "axios";
 import { useReducer } from "react";
+import useProducts from "../hooks/useProduct";
 
 const initialState = {
   name: "",
@@ -28,7 +29,7 @@ const formReducer = (state, action) => {
   return initialState;
 };
 
-const ProductForm = () => {
+const ProductForm = ({ fetchProducts }) => {
   const [product, dispatch] = useReducer(formReducer, initialState);
 
   const changeHandler = (e) => {
@@ -49,10 +50,11 @@ const ProductForm = () => {
     }
   };
 
-  const submitHandler = (e) => {
+  const submitHandler = async (e) => {
     e.preventDefault();
-    addProduct(product);
+    await addProduct(product);
     dispatch({ type: "RESET" });
+    fetchProducts();
   };
 
   return (
